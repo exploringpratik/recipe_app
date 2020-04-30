@@ -4,9 +4,10 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'file:///C:/Users/explo/Desktop/FoodAppProject/recipe_app/recipe_app/lib/utils/constants.dart';
 
 import 'package:recipeapp/screens/my_recipe_screen.dart';
-import 'package:recipeapp/utils/custom_widgets.dart';
+import 'package:recipeapp/utils/my_custom_widgets.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'WelcomeScreen';
@@ -27,11 +28,11 @@ class WelcomeScreen extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                     flex: 6,
-                    child: CustomWidgets().buildContainerWithImage(
+                    child: MyCustomWidgets().buildContainerWithImage(
                         height: 160,
-                        assetImage: 'images/fruit1.jpg',
+                        assetImage: kassetsFolderLocation+'fruit1.jpg',
                         borderRadiusTopRight: 100,
-                        borderRadiusBottomRight: 100
+                        borderRadiusBottomRight: 100,
                     )
 
                 ),
@@ -40,9 +41,9 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 3,
-                  child: CustomWidgets().buildContainerWithImage(
+                  child: MyCustomWidgets().buildContainerWithImage(
                       height: 83,
-                      assetImage: 'images/pizza.jpg',
+                      assetImage: kassetsFolderLocation+'pizza.jpg',
                       borderRadiusBottomLeft: 100),
                 ),
               ],
@@ -94,7 +95,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 60),
             Image(
-              image: AssetImage('images/chatpate.jpg'),
+              image: AssetImage(kassetsFolderLocation+'chatpate.jpg'),
             )
           ],
         ),

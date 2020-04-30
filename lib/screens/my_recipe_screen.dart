@@ -1,4 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
+import 'package:recipeapp/utils/constants.dart';
+import 'package:recipeapp/utils/my_custom_widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class MyRecipeScreen extends StatefulWidget {
   static const String id = 'MyRecipeScreen';
@@ -46,17 +52,97 @@ class _MyRecipeScreenState extends State<MyRecipeScreen> {
         children: <Widget>[
           Expanded(
             flex: 4,
-            child: Column(
+            child: ListView(
               children: <Widget>[
-//TODO List view of images
-                Image.asset('images/momo.jpg')
+                SizedBox(
+                  height: 10,
+                ),
+                MyCustomWidgets().buildContainerWithImage(height: 120, assetImage: kassetsFolderLocation+'momo.jpg'),
+                SizedBox(
+                  height: 40,
+                ),
+                Image(image: AssetImage(kassetsFolderLocation+'momo.jpg'))
               ],
             ),
           ),
           Expanded(
             flex: 7,
             child: Column(
-              children: <Widget>[Image.asset('images/momo.jpg')],
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Padding(
+                  padding: EdgeInsetsDirectional.only(
+                    top: 32,
+                  ),
+                  child: Stack(
+                    overflow: Overflow.visible,
+                    children: <Widget>[
+                      Container(
+                        height: 240,
+                        width: 240,
+                      ),
+                      Positioned(
+                        left: 32.0,
+                        child: MyCustomWidgets().buildContainerWithImage(
+                          assetImage: kassetsFolderLocation + 'momo.jpg',
+                          height: 240,
+                          width: 240,
+                          shadowRadius: 2,
+                          borderRadiusBottomRight: 120,
+                          borderRadiusTopRight: 120,
+                          borderRadiusBottomLeft: 120,
+                          borderRadiusTopLeft: 120,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  'Momo',
+                  style: TextStyle(
+                    fontSize: 40,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.access_time,
+                      color: Color(0xFFD43947),
+                      size: 40,
+                    ),
+                    Text(
+                      '\t 50 minutes',
+                    )
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                      'Momo is a dumpling made of all-purpose flour and filled with either meat or vegetables.'),
+                ),
+                RaisedButton(
+                  color: Color(0xffD43947),
+                  onPressed: () {},
+                  padding: EdgeInsets.only(
+                    left: 32,
+                    right: 32,
+                    top: 16,
+                    bottom: 16
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(32),
+                  ),
+                  child: Text(
+                    'Recipe',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
+                  ),
+                ),
+              ],
             ),
           )
         ],
